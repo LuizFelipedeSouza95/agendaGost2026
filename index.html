@@ -29,6 +29,13 @@
             background-position: center;
         }
 
+        @media (max-width: 640px) {
+            .watermark {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
         .table-container {
             position: relative;
             z-index: 1;
@@ -57,36 +64,138 @@
         .link-maps:hover {
             text-decoration: underline;
         }
+
+        @media (max-width: 640px) {
+            .link-maps {
+                font-size: 0.75em;
+                margin-left: 4px;
+                display: inline-block;
+            }
+        }
+
+        /* Estilos para cards mobile */
+        .cards-container {
+            display: none;
+        }
+
+        .event-card {
+            background: white;
+            border: 2px solid black;
+            border-radius: 0;
+            margin-bottom: 12px;
+            padding: 14px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-card:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid black;
+        }
+
+        .card-data {
+            font-weight: 900;
+            font-size: 1.05em;
+            color: black;
+            letter-spacing: 0.5px;
+        }
+
+        .card-horario {
+            font-weight: 700;
+            color: black;
+            font-size: 0.9em;
+        }
+
+        .card-operacao {
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 0.95em;
+            color: black;
+            line-height: 1.4;
+        }
+
+        .card-local {
+            color: #1f2937;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .card-local-container {
+            flex: 1;
+        }
+
+        @media (max-width: 640px) {
+            .table-desktop {
+                display: none;
+            }
+
+            .cards-container {
+                display: block;
+            }
+        }
+
+        @media (min-width: 641px) {
+            .table-desktop {
+                display: block;
+            }
+
+            .cards-container {
+                display: none;
+            }
+        }
     </style>
 </head>
 
-<body class="bg-white min-h-screen py-8 px-4">
+<body class="bg-white min-h-screen py-4 px-2 sm:py-8 sm:px-4">
     <div class="watermark"></div>
 
     <div class="table-container max-w-6xl mx-auto">
-        <h1 class="text-4xl md:text-5xl font-black text-center mb-8 tracking-wider text-black uppercase">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-center mb-4 sm:mb-6 md:mb-8 tracking-wider text-black uppercase px-2">
             AGENDA 2026 - GOST
         </h1>
 
-        <div class="overflow-x-auto">
-            <table class="w-full border-collapse border-2 border-black bg-white shadow-lg">
-                <thead>
-                    <tr class="bg-black text-white">
-                        <th class="border-2 border-black px-4 py-3 text-left font-bold uppercase text-sm md:text-base">
-                            DATA</th>
-                        <th class="border-2 border-black px-4 py-3 text-left font-bold uppercase text-sm md:text-base">
-                            OPERAÇÃO/TREINAMENTO/EVENTO</th>
-                        <th class="border-2 border-black px-4 py-3 text-left font-bold uppercase text-sm md:text-base">
-                            LOCAL</th>
-                        <th
-                            class="border-2 border-black px-4 py-3 text-center font-bold uppercase text-sm md:text-base">
-                            HORÁRIO</th>
-                    </tr>
-                </thead>
-                <tbody id="eventosTable">
-                    <!-- Dados serão inseridos via JavaScript -->
-                </tbody>
-            </table>
+        <!-- Tabela Desktop -->
+        <div class="table-desktop overflow-x-auto -mx-2 sm:mx-0">
+            <div class="inline-block min-w-full align-middle px-2 sm:px-0">
+                <table class="w-full border-collapse border-2 border-black bg-white shadow-lg text-xs sm:text-sm md:text-base">
+                    <thead>
+                        <tr class="bg-black text-white">
+                            <th class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-left font-bold uppercase text-xs sm:text-sm md:text-base whitespace-nowrap">
+                                DATA</th>
+                            <th class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-left font-bold uppercase text-xs sm:text-sm md:text-base">
+                                OPERAÇÃO/TREINAMENTO/EVENTO</th>
+                            <th class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-left font-bold uppercase text-xs sm:text-sm md:text-base whitespace-nowrap">
+                                LOCAL</th>
+                            <th class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-center font-bold uppercase text-xs sm:text-sm md:text-base whitespace-nowrap">
+                                HORÁRIO</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventosTable">
+                        <!-- Dados serão inseridos via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Cards Mobile -->
+        <div class="cards-container px-2" id="eventosCards">
+            <!-- Cards serão inseridos via JavaScript -->
         </div>
     </div>
 
@@ -311,7 +420,7 @@
             }
         }
 
-        // Função para renderizar a tabela
+        // Função para renderizar a tabela (desktop)
         function renderizarTabela() {
             const tbody = document.getElementById('eventosTable');
             tbody.innerHTML = '';
@@ -330,18 +439,57 @@
                     : '';
 
                 tr.innerHTML = `
-                    <td class="border-2 border-black px-4 py-3 font-bold text-sm md:text-base">${evento.data}</td>
-                    <td class="border-2 border-black px-4 py-3 uppercase text-sm md:text-base">${checkIcon}${evento.operacao}</td>
-                    <td class="border-2 border-black px-4 py-3 uppercase text-sm md:text-base">${evento.local}${ctAlpha}</td>
-                    <td class="border-2 border-black px-4 py-3 font-semibold text-sm md:text-base text-center">${evento.horario}</td>
+                    <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 font-bold text-xs sm:text-sm md:text-base whitespace-nowrap">${evento.data}</td>
+                    <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${checkIcon}${evento.operacao}</td>
+                    <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${evento.local}${ctAlpha}</td>
+                    <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 font-semibold text-xs sm:text-sm md:text-base text-center whitespace-nowrap">${evento.horario}</td>
                 `;
 
                 tbody.appendChild(tr);
             });
         }
 
-        // Renderizar a tabela ao carregar a página
-        document.addEventListener('DOMContentLoaded', renderizarTabela);
+        // Função para renderizar os cards (mobile)
+        function renderizarCards() {
+            const cardsContainer = document.getElementById('eventosCards');
+            cardsContainer.innerHTML = '';
+
+            eventos.forEach((evento, index) => {
+                // Verifica se o evento já passou
+                const eventoPassou = dataJaPassou(evento.data);
+                const checkIcon = eventoPassou ? '<span class="check-verde">✓</span>' : '';
+
+                // Adiciona link do Maps se o local for CT ALPHA
+                const ctAlpha = evento.local.toUpperCase() === 'CT ALPHA'
+                    ? `<a href="${ctAlphaMaps}" target="_blank" class="link-maps">Maps</a>`
+                    : '';
+
+                const card = document.createElement('div');
+                card.className = 'event-card';
+                
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-data">${evento.data}</div>
+                        <div class="card-horario">${evento.horario}</div>
+                    </div>
+                    <div class="card-operacao">${checkIcon}${evento.operacao}</div>
+                    <div class="card-footer">
+                        <div class="card-local-container">
+                            <div class="card-local">${evento.local}</div>
+                        </div>
+                        ${ctAlpha ? `<div>${ctAlpha}</div>` : ''}
+                    </div>
+                `;
+
+                cardsContainer.appendChild(card);
+            });
+        }
+
+        // Renderizar tabela e cards ao carregar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            renderizarTabela();
+            renderizarCards();
+        });
     </script>
 </body>
 
