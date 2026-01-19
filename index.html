@@ -45,6 +45,18 @@
             margin-right: 8px;
             display: inline-block;
         }
+
+        .link-maps {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.85em;
+            margin-left: 8px;
+            font-weight: normal;
+        }
+
+        .link-maps:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -66,7 +78,8 @@
                             OPERAÇÃO/TREINAMENTO/EVENTO</th>
                         <th class="border-2 border-black px-4 py-3 text-left font-bold uppercase text-sm md:text-base">
                             LOCAL</th>
-                        <th class="border-2 border-black px-4 py-3 text-center font-bold uppercase text-sm md:text-base">
+                        <th
+                            class="border-2 border-black px-4 py-3 text-center font-bold uppercase text-sm md:text-base">
                             HORÁRIO</th>
                     </tr>
                 </thead>
@@ -78,6 +91,7 @@
     </div>
 
     <script>
+        const ctAlphaMaps = "https://maps.app.goo.gl/4hYBmkZkKkZhhRtn8";
         // Array de objetos JSON com os eventos
         const eventos = [
             {
@@ -271,7 +285,7 @@
                     const partes = dataString.split(' - ');
                     const primeiraData = partes[0].trim();
                     const segundaData = partes[1].trim();
-                    
+
                     // Verifica se pelo menos a última data do intervalo já passou
                     return dataJaPassou(segundaData);
                 }
@@ -310,10 +324,15 @@
                 const eventoPassou = dataJaPassou(evento.data);
                 const checkIcon = eventoPassou ? '<span class="check-verde">✓</span>' : '';
 
+                // Adiciona link do Maps se o local for CT ALPHA
+                const ctAlpha = evento.local.toUpperCase() === 'CT ALPHA'
+                    ? ` <a href="${ctAlphaMaps}" target="_blank" class="link-maps">Maps</a>`
+                    : '';
+
                 tr.innerHTML = `
                     <td class="border-2 border-black px-4 py-3 font-bold text-sm md:text-base">${evento.data}</td>
                     <td class="border-2 border-black px-4 py-3 uppercase text-sm md:text-base">${checkIcon}${evento.operacao}</td>
-                    <td class="border-2 border-black px-4 py-3 uppercase text-sm md:text-base">${evento.local}</td>
+                    <td class="border-2 border-black px-4 py-3 uppercase text-sm md:text-base">${evento.local}${ctAlpha}</td>
                     <td class="border-2 border-black px-4 py-3 font-semibold text-sm md:text-base text-center">${evento.horario}</td>
                 `;
 
