@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGENDA 2026 - GOST</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.08;
+            z-index: 0;
+            pointer-events: none;
+            width: 400px;
+            height: 400px;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNIDEwMCAxMCBMIDkwIDQwIEwgNzAgMzAgTCA1MCA1MCBMIDMwIDQwIEwgMTAgNjAgTCAyMCA4MCBMIDQwIDcwIEwgNjAgOTAgTCA4MCA4MCBMIDkwIDEwMCBMIDEwMCA5MCBMIDExMCAxMDAgTCAxMzAgODAgTCAxNTAgOTAgTCAxNzAgNzAgTCAxOTAgODAgTCAxODAgNjAgTCAxNzAgNDAgTCAxNTAgNTAgTCAxMzAgMzAgTCAxMTAgNDAgWiIgZmlsbD0iIzAwMCIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjUwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjMiLz48L3N2Zz4=');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .table-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .table-row:hover {
+            background-color: #f3f4f6 !important;
+            transition: background-color 0.2s ease;
+        }
+
+        .check-verde {
+            color: #22c55e;
+            font-weight: bold;
+            margin-right: 8px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body class="bg-white min-h-screen py-8 px-4">
+    <div class="watermark"></div>
+
+    <div class="table-container max-w-6xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-black text-center mb-8 tracking-wider text-black uppercase">
+            AGENDA 2026 - GOST
+        </h1>
+
+        <div class="overflow-x-auto">
+            <table class="w-full border-collapse border-2 border-black bg-white shadow-lg">
+                <thead>
+                    <tr class="bg-black text-white">
+                        <th class="border-2 border-black px-4 py-3 text-left font-bold uppercase text-sm md:text-base">
+                            DATA</th>
+                        <th class="border-2 border-black px-4 py-3 text-left font-bold uppercase text-sm md:text-base">
+                            OPERAÇÃO/TREINAMENTO/EVENTO</th>
+                        <th class="border-2 border-black px-4 py-3 text-left font-bold uppercase text-sm md:text-base">
+                            LOCAL</th>
+                        <th class="border-2 border-black px-4 py-3 text-center font-bold uppercase text-sm md:text-base">
+                            HORÁRIO</th>
+                    </tr>
+                </thead>
+                <tbody id="eventosTable">
+                    <!-- Dados serão inseridos via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Array de objetos JSON com os eventos
+        const eventos = [
+            {
+                data: "17/JAN",
+                operacao: "LABORATORIO SAR",
+                local: "POUSO ALEGRE MG",
+                horario: "14:00 - 21:00"
+            },
+            {
+                data: "25/JAN",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "08/FEV",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "22/FEV",
+                operacao: "TREINAMENTO/PREPARAÇÃO DISTRICT IV",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "28/FEV - 01/MAR",
+                operacao: "DISTRICT IV",
+                local: "RESENDE RJ",
+                horario: "-"
+            },
+            {
+                data: "08/MAR",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "22/MAR",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "12/ABRIL",
+                operacao: "AÇÕES TÁTICAS SAR",
+                local: "RESENDE RJ",
+                horario: "-"
+            },
+            {
+                data: "25/ABRIL - 26/ABRIL",
+                operacao: "PANDORA IV",
+                local: "AMPARO SP",
+                horario: "-"
+            },
+            {
+                data: "10/MAIO",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "24/MAIO",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "31/MAIO",
+                operacao: "CURSO TATICAL OPS",
+                local: "RESENDE RJ",
+                horario: "-"
+            },
+            {
+                data: "14/JUN",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "28/JUN",
+                operacao: "TREINAMENTO/PREPARAÇÃO FRONTEIRA V",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "04/JUL",
+                operacao: "OPERAÇÃO FRONTEIRA V",
+                local: "TAUBATE SP",
+                horario: "-"
+            },
+            {
+                data: "12/JUL",
+                operacao: "CURSO URBAN OPS",
+                local: "RESENDE RJ",
+                horario: "-"
+            },
+            {
+                data: "08/AGO",
+                operacao: "TREINAMENTO/PREPARAÇÃO COMBATE ZONE V",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "15/AGO",
+                operacao: "OPERAÇÃO COMBATE ZONE V",
+                local: "ITAJUBA SP",
+                horario: "-"
+            },
+            {
+                data: "29/AGO",
+                operacao: "OPERAÇÃO MEGAWATTS",
+                local: "ARUJA SP",
+                horario: "-"
+            },
+            {
+                data: "13/SET",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "27/SET",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "11/OUT",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "25/OUT",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "08/NOV",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "22/NOV",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "06/DEZ",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+            {
+                data: "20/DEZ",
+                operacao: "TREINAMENTO",
+                local: "CT ALPHA",
+                horario: "07:30 - 11:00"
+            },
+        ];
+
+        // Mapeamento de meses abreviados para números
+        const mesesMap = {
+            'JAN': 0, 'JANEIRO': 0,
+            'FEV': 1, 'FEVEREIRO': 1,
+            'MAR': 2, 'MARÇO': 2,
+            'ABR': 3, 'ABRIL': 3,
+            'MAI': 4, 'MAIO': 4,
+            'JUN': 5, 'JUNHO': 5,
+            'JUL': 6, 'JULHO': 6,
+            'AGO': 7, 'AGOSTO': 7,
+            'SET': 8, 'SETEMBRO': 8,
+            'OUT': 9, 'OUTUBRO': 9,
+            'NOV': 10, 'NOVEMBRO': 10,
+            'DEZ': 11, 'DEZEMBRO': 11
+        };
+
+        // Função para verificar se a data já passou
+        function dataJaPassou(dataString) {
+            try {
+                const hoje = new Date();
+                hoje.setHours(0, 0, 0, 0);
+
+                // Se a data contém intervalo (ex: "28/FEV - 01/MAR")
+                if (dataString.includes(' - ')) {
+                    const partes = dataString.split(' - ');
+                    const primeiraData = partes[0].trim();
+                    const segundaData = partes[1].trim();
+                    
+                    // Verifica se pelo menos a última data do intervalo já passou
+                    return dataJaPassou(segundaData);
+                }
+
+                // Parse da data no formato "17/JAN" ou "12/ABRIL"
+                const partes = dataString.split('/');
+                if (partes.length !== 2) return false;
+
+                const dia = parseInt(partes[0]);
+                const mesStr = partes[1].toUpperCase().trim();
+                const mes = mesesMap[mesStr];
+
+                if (isNaN(dia) || mes === undefined) return false;
+
+                // Cria a data no ano 2026
+                const dataEvento = new Date(2026, mes, dia);
+                dataEvento.setHours(0, 0, 0, 0);
+
+                // Compara com a data atual
+                return dataEvento < hoje;
+            } catch (error) {
+                return false;
+            }
+        }
+
+        // Função para renderizar a tabela
+        function renderizarTabela() {
+            const tbody = document.getElementById('eventosTable');
+            tbody.innerHTML = '';
+
+            eventos.forEach((evento, index) => {
+                const tr = document.createElement('tr');
+                tr.className = `table-row border-2 border-black ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`;
+
+                // Verifica se o evento já passou
+                const eventoPassou = dataJaPassou(evento.data);
+                const checkIcon = eventoPassou ? '<span class="check-verde">✓</span>' : '';
+
+                tr.innerHTML = `
+                    <td class="border-2 border-black px-4 py-3 font-bold text-sm md:text-base">${evento.data}</td>
+                    <td class="border-2 border-black px-4 py-3 uppercase text-sm md:text-base">${checkIcon}${evento.operacao}</td>
+                    <td class="border-2 border-black px-4 py-3 uppercase text-sm md:text-base">${evento.local}</td>
+                    <td class="border-2 border-black px-4 py-3 font-semibold text-sm md:text-base text-center">${evento.horario}</td>
+                `;
+
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Renderizar a tabela ao carregar a página
+        document.addEventListener('DOMContentLoaded', renderizarTabela);
+    </script>
+</body>
+
+</html>
