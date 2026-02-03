@@ -166,23 +166,29 @@
     <div class="watermark"></div>
 
     <div class="table-container max-w-6xl mx-auto">
-        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-center mb-4 sm:mb-6 md:mb-8 tracking-wider text-black uppercase px-2">
+        <h1
+            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-center mb-4 sm:mb-6 md:mb-8 tracking-wider text-black uppercase px-2">
             AGENDA 2026 - GOST
         </h1>
 
         <!-- Tabela Desktop -->
         <div class="table-desktop overflow-x-auto -mx-2 sm:mx-0">
             <div class="inline-block min-w-full align-middle px-2 sm:px-0">
-                <table class="w-full border-collapse border-2 border-black bg-white shadow-lg text-xs sm:text-sm md:text-base">
+                <table
+                    class="w-full border-collapse border-2 border-black bg-white shadow-lg text-xs sm:text-sm md:text-base">
                     <thead>
                         <tr class="bg-black text-white">
-                            <th class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-left font-bold uppercase text-xs sm:text-sm md:text-base whitespace-nowrap">
+                            <th
+                                class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-left font-bold uppercase text-xs sm:text-sm md:text-base whitespace-nowrap">
                                 DATA</th>
-                            <th class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-left font-bold uppercase text-xs sm:text-sm md:text-base">
+                            <th
+                                class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-left font-bold uppercase text-xs sm:text-sm md:text-base">
                                 OPERAÇÃO/TREINAMENTO/EVENTO</th>
-                            <th class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-left font-bold uppercase text-xs sm:text-sm md:text-base whitespace-nowrap">
+                            <th
+                                class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-left font-bold uppercase text-xs sm:text-sm md:text-base whitespace-nowrap">
                                 LOCAL</th>
-                            <th class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-center font-bold uppercase text-xs sm:text-sm md:text-base whitespace-nowrap">
+                            <th
+                                class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-center font-bold uppercase text-xs sm:text-sm md:text-base whitespace-nowrap">
                                 HORÁRIO</th>
                         </tr>
                     </thead>
@@ -220,6 +226,12 @@
                 operacao: "TREINAMENTO",
                 local: "CT ALPHA",
                 horario: "07:30 - 11:00"
+            },
+            {
+                data: "15/FEV",
+                operacao: "TREINAMENTO [ELITE TIM]",
+                local: "CT SÃO PEDRO",
+                horario: "08:00"
             },
             {
                 data: "22/FEV",
@@ -265,9 +277,9 @@
             },
             {
                 data: "24/MAIO",
-                operacao: "TREINAMENTO",
-                local: "CT ALPHA",
-                horario: "07:30 - 11:00"
+                operacao: "TREINAMENTO [ELITE TIM]",
+                local: "CT SÃO PEDRO",
+                horario: "08:00"
             },
             {
                 data: "31/MAIO",
@@ -288,7 +300,7 @@
                 horario: "07:30 - 11:00"
             },
             {
-                data: "04/JUL",
+                data: "04/JUL - 05/JUL",
                 operacao: "OPERAÇÃO FRONTEIRA V",
                 local: "TAUBATE SP",
                 horario: "-"
@@ -312,8 +324,8 @@
                 horario: "-"
             },
             {
-                data: "29/AGO",
-                operacao: "OPERAÇÃO MEGAWATTS",
+                data: "29/AGO - 30/AGO",
+                operacao: "OPERAÇÃO MEGAWATTS 3",
                 local: "ARUJA SP",
                 horario: "-"
             },
@@ -324,10 +336,10 @@
                 horario: "07:30 - 11:00"
             },
             {
-                data: "27/SET",
-                operacao: "TREINAMENTO",
-                local: "CT ALPHA",
-                horario: "07:30 - 11:00"
+                data: "19/SET",
+                operacao: "TREINAMENTO [ELITE TIM]",
+                local: "CT SÃO PEDRO",
+                horario: "19:00"
             },
             {
                 data: "11/OUT",
@@ -336,16 +348,16 @@
                 horario: "07:30 - 11:00"
             },
             {
-                data: "25/OUT",
-                operacao: "TREINAMENTO",
-                local: "CT ALPHA",
-                horario: "07:30 - 11:00"
+                data: "24/OUT - 25/OUT",
+                operacao: "CURSO OPERACIONAL TATICO AIRSOFT ",
+                local: "CT SÃO PEDRO",
+                horario: "14:00"
             },
             {
                 data: "08/NOV",
-                operacao: "TREINAMENTO",
-                local: "CT ALPHA",
-                horario: "07:30 - 11:00"
+                operacao: "TREINAMENTO TATICO MILSIM [ELITE TIM]",
+                local: "CT SÃO PEDRO",
+                horario: "08:00"
             },
             {
                 data: "22/NOV",
@@ -466,7 +478,7 @@
 
                 const card = document.createElement('div');
                 card.className = 'event-card';
-                
+
                 card.innerHTML = `
                     <div class="card-header">
                         <div class="card-data">${evento.data}</div>
