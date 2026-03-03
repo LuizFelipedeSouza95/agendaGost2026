@@ -92,7 +92,7 @@
         }
 
         .event-card.cinza {
-            background-color: #9e9ea0;
+            background-color: #dadada;
         }
 
         .card-header {
@@ -115,6 +115,15 @@
             font-weight: 700;
             color: black;
             font-size: 0.9em;
+        }
+
+        .operacao-tipo {
+            font-size: 0.7em;
+            font-weight: 400;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
         }
 
         .card-operacao {
@@ -187,7 +196,7 @@
                                 DATA</th>
                             <th
                                 class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-left font-bold uppercase text-xs sm:text-sm md:text-base">
-                                OPERAÇÃO/TREINAMENTO/EVENTO</th>
+                                DESCRIÇÃO</th>
                             <th
                                 class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-left font-bold uppercase text-xs sm:text-sm md:text-base whitespace-nowrap">
                                 LOCAL</th>
@@ -218,169 +227,197 @@
                 data: "17/JAN",
                 operacao: "LABORATORIO SAR",
                 local: "POUSO ALEGRE MG",
-                horario: "14:00 - 21:00"
+                horario: "14:00 - 21:00",
+                tipo: "CURSO"
             },
             {
                 data: "25/JAN",
-                operacao: "TREINAMENTO",
+                operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
-                horario: "07:30 - 11:00"
+                horario: "07:30 - 11:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "08/FEV",
-                operacao: "TREINAMENTO",
+                operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
-                horario: "07:30 - 11:00"
+                horario: "07:30 - 11:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "15/FEV",
-                operacao: "TREINAMENTO - ELITE TIM",
+                operacao: "ELITE TIM",
                 local: "CT SÃO PEDRO",
-                horario: "08:00"
+                horario: "08:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "22/FEV",
-                operacao: "TREINAMENTO/PREPARAÇÃO DISTRICT IV",
+                operacao: "PREPARAÇÃO DISTRICT IV",
                 local: "CT ALPHA GOST",
-                horario: "07:30 - 11:00"
+                horario: "07:30 - 11:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "28/FEV - 01/MAR",
                 operacao: "DISTRICT IV",
                 local: "RESENDE RJ",
-                horario: "22:00 - 08:00"
+                horario: "22:00 - 08:00",
+                tipo: "OPERAÇÃO"
             },
             {
                 data: "08/MAR",
-                operacao: "TREINAMENTO",
+                operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
-                horario: "07:30 - 11:00"
+                horario: "07:30 - 11:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "21/MAR - 22/MAR",
                 operacao: "TATICO INTENSIVO MILSIM",
                 local: "CT SÃO PEDRO/ELITE TIM",
-                horario: "15:00 - 11:00"
+                horario: "15:00 - 11:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "12/ABRIL",
                 operacao: "AÇÕES TÁTICAS SAR",
                 local: "RESENDE RJ",
-                horario: "-"
+                horario: "-",
+                tipo: "CURSO"
             },
             {
                 data: "25/ABRIL - 26/ABRIL",
                 operacao: "PANDORA IV",
                 local: "AMPARO SP",
-                horario: "-"
+                horario: "-",
+                tipo: "OPERAÇÃO"
             },
             {
                 data: "10/MAIO",
-                operacao: "TREINAMENTO",
+                operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
-                horario: "07:30 - 11:00"
+                horario: "07:30 - 11:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "24/MAIO",
-                operacao: "TREINAMENTO - ELITE TIM",
+                operacao: "ELITE TIM",
                 local: "CT SÃO PEDRO",
-                horario: "08:00"
+                horario: "08:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "31/MAIO",
-                operacao: "CURSO TATICAL OPS",
+                operacao: "TATICAL OPS",
                 local: "RESENDE RJ",
-                horario: "-"
+                horario: "-",
+                tipo: "CURSO"
             },
             {
-                data: "14/JUN",
-                operacao: "TREINAMENTO",
-                local: "CT ALPHA GOST",
-                horario: "07:30 - 11:00"
+                data: "13/JUN - 14/JUN",
+                operacao: "MIDAS KIEV",
+                local: "PINDA SP",
+                horario: "-",
+                tipo: "OPERAÇÃO"
             },
             {
                 data: "28/JUN",
-                operacao: "TREINAMENTO/PREPARAÇÃO FRONTEIRA V",
+                operacao: "PREPARAÇÃO FRONTEIRA V",
                 local: "CT ALPHA GOST",
-                horario: "07:30 - 11:00"
+                horario: "07:30 - 11:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "04/JUL - 05/JUL",
-                operacao: "OPERAÇÃO FRONTEIRA VI",
+                operacao: "FRONTEIRA VI",
                 local: "TAUBATE SP",
-                horario: "19:00 - 12:00"
+                horario: "19:00 - 12:00",
+                tipo: "OPERAÇÃO"
             },
             {
                 data: "12/JUL",
-                operacao: "CURSO URBAN OPS",
+                operacao: "URBAN OPS",
                 local: "RESENDE RJ",
-                horario: "-"
+                horario: "-",
+                tipo: "CURSO"
             },
             {
                 data: "08/AGO",
-                operacao: "TREINAMENTO/PREPARAÇÃO COMBATE ZONE V",
+                operacao: "PREPARAÇÃO COMBATE ZONE V",
                 local: "CT ALPHA GOST",
-                horario: "07:30 - 11:00"
+                horario: "07:30 - 11:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "15/AGO",
-                operacao: "OPERAÇÃO COMBATE ZONE V",
+                operacao: "COMBATE ZONE V",
                 local: "ITAJUBA SP",
-                horario: "19:00 - 12:00"
+                horario: "19:00 - 12:00",
+                tipo: "OPERAÇÃO"
             },
             {
-                data: "29/AGO - 30/AGO",
-                operacao: "OPERAÇÃO MEGAWATTS 3",
-                local: "ARUJA SP",
-                horario: "-"
+                data: "29/AGO",
+                operacao: "JOGO/TREINO NOTURNO GOST ",
+                local: "CT ALPHA GOST",
+                horario: "20:00 - 00:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "13/SET",
-                operacao: "TREINAMENTO",
+                operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
-                horario: "07:30 - 11:00"
+                horario: "07:30 - 11:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "19/SET",
                 operacao: "TREINAMENTO - ELITE TIM",
                 local: "CT SÃO PEDRO",
-                horario: "19:00"
+                horario: "19:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "11/OUT",
-                operacao: "TREINAMENTO",
+                operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
-                horario: "07:30 - 11:00"
+                horario: "07:30 - 11:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "24/OUT - 25/OUT",
-                operacao: "CURSO OPERACIONAL TATICO AIRSOFT ",
+                operacao: "OPERACIONAL TATICO AIRSOFT ",
                 local: "CT SÃO PEDRO",
-                horario: "14:00"
+                horario: "14:00",
+                tipo: "CURSO"
             },
             {
                 data: "08/NOV",
-                operacao: "TREINAMENTO TATICO MILSIM - ELITE TIM",
+                operacao: "TATICO MILSIM - ELITE TIM",
                 local: "CT SÃO PEDRO",
-                horario: "08:00"
+                horario: "08:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "22/NOV",
-                operacao: "TREINAMENTO",
+                operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
-                horario: "07:30 - 11:00"
+                horario: "07:30 - 11:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "06/DEZ",
-                operacao: "TREINAMENTO",
+                operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
-                horario: "07:30 - 11:00"
+                horario: "07:30 - 11:00",
+                tipo: "TREINAMENTO"
             },
             {
                 data: "20/DEZ",
-                operacao: "TREINAMENTO",
+                operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
-                horario: "07:30 - 11:00"
+                horario: "07:30 - 11:00",
+                tipo: "TREINAMENTO"
             },
         ];
 
@@ -480,7 +517,10 @@
 
                 tr.innerHTML = `
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 font-bold text-xs sm:text-sm md:text-base whitespace-nowrap">${evento.data}</td>
-                    <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${checkIcon}${evento.operacao}</td>
+                    <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-xs sm:text-sm md:text-base break-words align-top">
+                        <div class="operacao-tipo">${evento.tipo || ''}</div>
+                        <div class="uppercase">${checkIcon}${evento.operacao}</div>
+                    </td>
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${evento.local}${ctAlpha}${ctSaoPedro}${localDistrict4}${localFronteira6}${localLaboratorioSarPA}${localCombateZoneV}${localMegawatts3}</td>
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 font-semibold text-xs sm:text-sm md:text-base text-center whitespace-nowrap">${evento.horario}</td>
                 `;
@@ -536,7 +576,10 @@
                         <div class="card-data">${evento.data}</div>
                         <div class="card-horario">${evento.horario}</div>
                     </div>
-                    <div class="card-operacao">${checkIcon}${evento.operacao}</div>
+                    <div class="card-operacao">
+                        <div class="operacao-tipo">${evento.tipo || ''}</div>
+                        <div>${checkIcon}${evento.operacao}</div>
+                    </div>
                     <div class="card-footer">
                         <div class="card-local-container">
                             <div class="card-local">${evento.local}</div>
