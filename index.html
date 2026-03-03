@@ -268,7 +268,7 @@
                 data: "25/ABRIL - 26/ABRIL",
                 operacao: "PANDORA IV",
                 local: "AMPARO SP",
-                horario: "19:00 - 12:00"
+                horario: "-"
             },
             {
                 data: "10/MAIO",
@@ -304,7 +304,7 @@
                 data: "04/JUL - 05/JUL",
                 operacao: "OPERAÇÃO FRONTEIRA VI",
                 local: "TAUBATE SP",
-                horario: "-"
+                horario: "19:00 - 12:00"
             },
             {
                 data: "12/JUL",
@@ -322,7 +322,7 @@
                 data: "15/AGO",
                 operacao: "OPERAÇÃO COMBATE ZONE V",
                 local: "ITAJUBA SP",
-                horario: "-"
+                horario: "19:00 - 12:00"
             },
             {
                 data: "29/AGO - 30/AGO",
@@ -463,10 +463,22 @@
                     ? ` <a href="https://maps.app.goo.gl/nPspbq45LHucEj5YA" target="_blank" class="link-maps">Maps</a>`
                     : '';
 
+                const localLaboratorioSarPA = evento.operacao.toUpperCase() === 'LABORATORIO SAR' && evento.local.toUpperCase() === 'POUSO ALEGRE MG'
+                    ? ` <a href="https://maps.app.goo.gl/G7xPLeEn5qKTyDtb7" target="_blank" class="link-maps">Maps</a>`
+                    : '';
+
+                const localCombateZoneV = evento.operacao.toUpperCase() === 'OPERAÇÃO COMBATE ZONE V'
+                    ? ` <a href="https://maps.app.goo.gl/2WwEcWuvFAVDuPBw8" target="_blank" class="link-maps">Maps</a>`
+                    : '';
+
+                const localMegawatts3 = evento.operacao.toUpperCase() === 'OPERAÇÃO MEGAWATTS 3'
+                    ? ` <a href="https://maps.app.goo.gl/MgoCoRkQmqMeG7U96" target="_blank" class="link-maps">Maps</a>`
+                    : '';
+
                 tr.innerHTML = `
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 font-bold text-xs sm:text-sm md:text-base whitespace-nowrap">${evento.data}</td>
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${checkIcon}${evento.operacao}</td>
-                    <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${evento.local}${ctAlpha}${ctSaoPedro}${localDistrict4}${localFronteira6}</td>
+                    <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${evento.local}${ctAlpha}${ctSaoPedro}${localDistrict4}${localFronteira6}${localLaboratorioSarPA}${localCombateZoneV}${localMegawatts3}</td>
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 font-semibold text-xs sm:text-sm md:text-base text-center whitespace-nowrap">${evento.horario}</td>
                 `;
 
@@ -501,6 +513,18 @@
                     ? `<a href="https://maps.app.goo.gl/nPspbq45LHucEj5YA" target="_blank" class="link-maps">Maps</a>`
                     : '';
 
+                const localLaboratorioSarPA = evento.operacao.toUpperCase() === 'LABORATORIO SAR' && evento.local.toUpperCase() === 'POUSO ALEGRE MG'
+                    ? `<a href="https://maps.app.goo.gl/G7xPLeEn5qKTyDtb7" target="_blank" class="link-maps">Maps</a>`
+                    : '';
+
+                const localCombateZoneV = evento.operacao.toUpperCase() === 'OPERAÇÃO COMBATE ZONE V'
+                    ? `<a href="https://maps.app.goo.gl/2WwEcWuvFAVDuPBw8" target="_blank" class="link-maps">Maps</a>`
+                    : '';
+
+                const localMegawatts3 = evento.operacao.toUpperCase() === 'OPERAÇÃO MEGAWATTS 3'
+                    ? `<a href="https://maps.app.goo.gl/MgoCoRkQmqMeG7U96" target="_blank" class="link-maps">Maps</a>`
+                    : '';
+
                 const card = document.createElement('div');
                 card.className = 'event-card';
 
@@ -516,6 +540,9 @@
                         </div>
                         ${(ctAlpha || ctSaoPedro) ? `<div>${ctAlpha || ctSaoPedro}</div>` : ''}
                         ${(localDistrict4 || localFronteira6) ? `<div>${localDistrict4 || localFronteira6}</div>` : ''}
+                        ${(localLaboratorioSarPA) ? `<div>${localLaboratorioSarPA}</div>` : ''}
+                        ${(localCombateZoneV) ? `<div>${localCombateZoneV}</div>` : ''}
+                        ${(localMegawatts3) ? `<div>${localMegawatts3}</div>` : ''}
                     </div>
                 `;
 
