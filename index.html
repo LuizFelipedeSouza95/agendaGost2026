@@ -42,8 +42,8 @@
         }
 
         .table-row:hover {
-            background-color: #f3f4f6 !important;
-            transition: background-color 0.2s ease;
+            filter: brightness(0.96);
+            transition: filter 0.2s ease;
         }
 
         .check-verde {
@@ -87,8 +87,12 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
-        .event-card:nth-child(even) {
-            background-color: #f9fafb;
+        .event-card.passou {
+            background-color: #dcfce7;
+        }
+
+        .event-card.cinza {
+            background-color: #9e9ea0;
         }
 
         .card-header {
@@ -439,11 +443,10 @@
             tbody.innerHTML = '';
 
             eventos.forEach((evento, index) => {
-                const tr = document.createElement('tr');
-                tr.className = `table-row border-2 border-black ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`;
-
-                // Verifica se o evento já passou
                 const eventoPassou = dataJaPassou(evento.data);
+                const rowBg = eventoPassou ? 'bg-green-50' : (index % 2 === 0 ? 'bg-white' : 'bg-gray-100');
+                const tr = document.createElement('tr');
+                tr.className = `table-row border-2 border-black ${rowBg}`;
                 const checkIcon = eventoPassou ? '<span class="check-verde">✓</span>' : '';
 
                 // Adiciona link do Maps se o local for CT ALPHA GOST
@@ -492,9 +495,9 @@
             cardsContainer.innerHTML = '';
 
             eventos.forEach((evento, index) => {
-                // Verifica se o evento já passou
                 const eventoPassou = dataJaPassou(evento.data);
                 const checkIcon = eventoPassou ? '<span class="check-verde">✓</span>' : '';
+                const cardBg = eventoPassou ? 'passou' : (index % 2 === 0 ? '' : 'cinza');
 
                 // Adiciona link do Maps se o local for CT ALPHA GOST
                 const ctAlpha = evento.local.toUpperCase() === 'CT ALPHA GOST'
@@ -526,7 +529,7 @@
                     : '';
 
                 const card = document.createElement('div');
-                card.className = 'event-card';
+                card.className = `event-card ${cardBg}`;
 
                 card.innerHTML = `
                     <div class="card-header">
