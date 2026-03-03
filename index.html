@@ -452,14 +452,13 @@
                     : '';
 
                 const ctSaoPedro = evento.local.toUpperCase() === 'CT SÃO PEDRO' || evento.local.toUpperCase() === 'CT SÃO PEDRO/ELITE TIM'
-                    ? `<a href="${ctSaoPedroMaps}" target="_blank" class="link-maps">Maps</a>`
+                    ? ` <a href="${ctSaoPedroMaps}" target="_blank" class="link-maps">Maps</a>`
                     : '';
 
                 tr.innerHTML = `
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 font-bold text-xs sm:text-sm md:text-base whitespace-nowrap">${evento.data}</td>
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${checkIcon}${evento.operacao}</td>
-                    <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${evento.local}${ctAlpha}</td>
-                    ${ctSaoPedro ? `<td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${ctSaoPedro}</td>` : ''}
+                    <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${evento.local}${ctAlpha}${ctSaoPedro}</td>
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 font-semibold text-xs sm:text-sm md:text-base text-center whitespace-nowrap">${evento.horario}</td>
                 `;
 
@@ -482,6 +481,10 @@
                     ? `<a href="${ctAlphaGostMaps}" target="_blank" class="link-maps">Maps</a>`
                     : '';
 
+                const ctSaoPedro = evento.local.toUpperCase() === 'CT SÃO PEDRO' || evento.local.toUpperCase() === 'CT SÃO PEDRO/ELITE TIM'
+                    ? `<a href="${ctSaoPedroMaps}" target="_blank" class="link-maps">Maps</a>`
+                    : '';
+
                 const card = document.createElement('div');
                 card.className = 'event-card';
 
@@ -495,7 +498,7 @@
                         <div class="card-local-container">
                             <div class="card-local">${evento.local}</div>
                         </div>
-                        ${ctAlpha ? `<div>${ctAlpha}</div>` : ''}
+                        ${(ctAlpha || ctSaoPedro) ? `<div>${ctAlpha || ctSaoPedro}</div>` : ''}
                     </div>
                 `;
 
