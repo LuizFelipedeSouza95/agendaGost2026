@@ -268,7 +268,7 @@
                 data: "25/ABRIL - 26/ABRIL",
                 operacao: "PANDORA IV",
                 local: "AMPARO SP",
-                horario: "-"
+                horario: "19:00 - 12:00"
             },
             {
                 data: "10/MAIO",
@@ -302,7 +302,7 @@
             },
             {
                 data: "04/JUL - 05/JUL",
-                operacao: "OPERAÇÃO FRONTEIRA V",
+                operacao: "OPERAÇÃO FRONTEIRA VI",
                 local: "TAUBATE SP",
                 horario: "-"
             },
@@ -455,10 +455,18 @@
                     ? ` <a href="${ctSaoPedroMaps}" target="_blank" class="link-maps">Maps</a>`
                     : '';
 
+                const localDistrict4 = evento.operacao.toUpperCase() === 'DISTRICT IV'
+                    ? ` <a href="https://maps.app.goo.gl/LqBw7ZELCLG1mrrz9" target="_blank" class="link-maps">Maps</a>`
+                    : '';
+
+                const localFronteira6 = evento.operacao.toUpperCase() === 'OPERAÇÃO FRONTEIRA VI'
+                    ? ` <a href="https://maps.app.goo.gl/nPspbq45LHucEj5YA" target="_blank" class="link-maps">Maps</a>`
+                    : '';
+
                 tr.innerHTML = `
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 font-bold text-xs sm:text-sm md:text-base whitespace-nowrap">${evento.data}</td>
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${checkIcon}${evento.operacao}</td>
-                    <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${evento.local}${ctAlpha}${ctSaoPedro}</td>
+                    <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${evento.local}${ctAlpha}${ctSaoPedro}${localDistrict4}${localFronteira6}</td>
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 font-semibold text-xs sm:text-sm md:text-base text-center whitespace-nowrap">${evento.horario}</td>
                 `;
 
@@ -485,6 +493,14 @@
                     ? `<a href="${ctSaoPedroMaps}" target="_blank" class="link-maps">Maps</a>`
                     : '';
 
+                const localDistrict4 = evento.operacao.toUpperCase() === 'DISTRICT IV'
+                    ? `<a href="https://maps.app.goo.gl/LqBw7ZELCLG1mrrz9" target="_blank" class="link-maps">Maps</a>`
+                    : '';
+
+                const localFronteira6 = evento.operacao.toUpperCase() === 'OPERAÇÃO FRONTEIRA VI'
+                    ? `<a href="https://maps.app.goo.gl/nPspbq45LHucEj5YA" target="_blank" class="link-maps">Maps</a>`
+                    : '';
+
                 const card = document.createElement('div');
                 card.className = 'event-card';
 
@@ -499,6 +515,7 @@
                             <div class="card-local">${evento.local}</div>
                         </div>
                         ${(ctAlpha || ctSaoPedro) ? `<div>${ctAlpha || ctSaoPedro}</div>` : ''}
+                        ${(localDistrict4 || localFronteira6) ? `<div>${localDistrict4 || localFronteira6}</div>` : ''}
                     </div>
                 `;
 
