@@ -206,7 +206,8 @@
     </div>
 
     <script>
-        const ctAlphaMaps = "https://maps.app.goo.gl/4hYBmkZkKkZhhRtn8";
+        const ctAlphaGostMaps = "https://maps.app.goo.gl/4hYBmkZkKkZhhRtn8";
+        const ctSaoPedroMaps = "https://maps.app.goo.gl/RRdE3bmvPoiY2hGh9";
         // Array de objetos JSON com os eventos
         const eventos = [
             {
@@ -218,13 +219,13 @@
             {
                 data: "25/JAN",
                 operacao: "TREINAMENTO",
-                local: "CT ALPHA",
+                local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00"
             },
             {
                 data: "08/FEV",
                 operacao: "TREINAMENTO",
-                local: "CT ALPHA",
+                local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00"
             },
             {
@@ -236,25 +237,25 @@
             {
                 data: "22/FEV",
                 operacao: "TREINAMENTO/PREPARAÇÃO DISTRICT IV",
-                local: "CT ALPHA",
+                local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00"
             },
             {
                 data: "28/FEV - 01/MAR",
                 operacao: "DISTRICT IV",
                 local: "RESENDE RJ",
-                horario: "-"
+                horario: "22:00 - 08:00"
             },
             {
                 data: "08/MAR",
                 operacao: "TREINAMENTO",
-                local: "CT ALPHA",
+                local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00"
             },
             {
-                data: "22/MAR",
-                operacao: "TREINAMENTO",
-                local: "CT ALPHA",
+                data: "21/MAR - 22/MAR",
+                operacao: "TATICO INTENSIVO MILSIM",
+                local: "CT SÃO PEDRO/ELITE TIM",
                 horario: "07:30 - 11:00"
             },
             {
@@ -272,7 +273,7 @@
             {
                 data: "10/MAIO",
                 operacao: "TREINAMENTO",
-                local: "CT ALPHA",
+                local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00"
             },
             {
@@ -290,13 +291,13 @@
             {
                 data: "14/JUN",
                 operacao: "TREINAMENTO",
-                local: "CT ALPHA",
+                local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00"
             },
             {
                 data: "28/JUN",
                 operacao: "TREINAMENTO/PREPARAÇÃO FRONTEIRA V",
-                local: "CT ALPHA",
+                local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00"
             },
             {
@@ -314,7 +315,7 @@
             {
                 data: "08/AGO",
                 operacao: "TREINAMENTO/PREPARAÇÃO COMBATE ZONE V",
-                local: "CT ALPHA",
+                local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00"
             },
             {
@@ -332,7 +333,7 @@
             {
                 data: "13/SET",
                 operacao: "TREINAMENTO",
-                local: "CT ALPHA",
+                local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00"
             },
             {
@@ -344,7 +345,7 @@
             {
                 data: "11/OUT",
                 operacao: "TREINAMENTO",
-                local: "CT ALPHA",
+                local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00"
             },
             {
@@ -362,19 +363,19 @@
             {
                 data: "22/NOV",
                 operacao: "TREINAMENTO",
-                local: "CT ALPHA",
+                local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00"
             },
             {
                 data: "06/DEZ",
                 operacao: "TREINAMENTO",
-                local: "CT ALPHA",
+                local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00"
             },
             {
                 data: "20/DEZ",
                 operacao: "TREINAMENTO",
-                local: "CT ALPHA",
+                local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00"
             },
         ];
@@ -445,9 +446,13 @@
                 const eventoPassou = dataJaPassou(evento.data);
                 const checkIcon = eventoPassou ? '<span class="check-verde">✓</span>' : '';
 
-                // Adiciona link do Maps se o local for CT ALPHA
-                const ctAlpha = evento.local.toUpperCase() === 'CT ALPHA'
-                    ? ` <a href="${ctAlphaMaps}" target="_blank" class="link-maps">Maps</a>`
+                // Adiciona link do Maps se o local for CT ALPHA GOST
+                const ctAlpha = evento.local.toUpperCase() === 'CT ALPHA GOST'
+                    ? ` <a href="${ctAlphaGostMaps}" target="_blank" class="link-maps">Maps</a>`
+                    : '';
+
+                const ctSaoPedro = evento.local.toUpperCase() === 'CT SÃO PEDRO' || evento.local.toUpperCase() === 'CT SÃO PEDRO/ELITE TIM'
+                    ? `<a href="${ctSaoPedroMaps}" target="_blank" class="link-maps">Maps</a>`
                     : '';
 
                 tr.innerHTML = `
@@ -471,9 +476,9 @@
                 const eventoPassou = dataJaPassou(evento.data);
                 const checkIcon = eventoPassou ? '<span class="check-verde">✓</span>' : '';
 
-                // Adiciona link do Maps se o local for CT ALPHA
-                const ctAlpha = evento.local.toUpperCase() === 'CT ALPHA'
-                    ? `<a href="${ctAlphaMaps}" target="_blank" class="link-maps">Maps</a>`
+                // Adiciona link do Maps se o local for CT ALPHA GOST
+                const ctAlpha = evento.local.toUpperCase() === 'CT ALPHA GOST'
+                    ? `<a href="${ctAlphaGostMaps}" target="_blank" class="link-maps">Maps</a>`
                     : '';
 
                 const card = document.createElement('div');
