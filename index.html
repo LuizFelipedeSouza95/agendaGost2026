@@ -95,6 +95,10 @@
             background-color: #dadada;
         }
 
+        .event-card.cancelado {
+            background-color: #fef2f2;
+        }
+
         .card-header {
             display: flex;
             justify-content: space-between;
@@ -126,6 +130,36 @@
             margin-bottom: 2px;
         }
 
+        .descricao-cell {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .descricao-esquerda {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .descricao-direita {
+            flex-shrink: 0;
+            text-align: right;
+        }
+
+        .evento-status {
+            font-size: 0.95em;
+            font-weight: 700;
+            color: #dc2626;
+        }
+
+        .evento-observacoes {
+            font-size: 0.75em;
+            color: #6b7280;
+            font-style: italic;
+            margin-top: 2px;
+        }
+
         .card-operacao {
             font-weight: 700;
             margin-bottom: 10px;
@@ -133,6 +167,23 @@
             font-size: 0.95em;
             color: black;
             line-height: 1.4;
+        }
+
+        .card-descricao-cell {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .card-descricao-esquerda {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-descricao-direita {
+            flex-shrink: 0;
+            text-align: right;
         }
 
         .card-local {
@@ -228,196 +279,252 @@
                 operacao: "LABORATORIO SAR",
                 local: "POUSO ALEGRE MG",
                 horario: "14:00 - 21:00",
-                tipo: "CURSO"
+                tipo: "CURSO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "25/JAN",
                 operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "08/FEV",
                 operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "15/FEV",
                 operacao: "ELITE TIM",
                 local: "CT SÃO PEDRO",
                 horario: "08:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "22/FEV",
                 operacao: "PREPARAÇÃO DISTRICT IV",
                 local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "28/FEV - 01/MAR",
                 operacao: "DISTRICT IV",
                 local: "RESENDE RJ",
                 horario: "22:00 - 08:00",
-                tipo: "OPERAÇÃO"
+                tipo: "OPERAÇÃO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "08/MAR",
                 operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "Cancelado",
+                observacoes: "Manutenção no campo"
             },
             {
                 data: "21/MAR - 22/MAR",
                 operacao: "TATICO INTENSIVO MILSIM",
                 local: "CT SÃO PEDRO/ELITE TIM",
                 horario: "15:00 - 11:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "12/ABRIL",
                 operacao: "AÇÕES TÁTICAS SAR",
                 local: "RESENDE RJ",
                 horario: "-",
-                tipo: "CURSO"
+                tipo: "CURSO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "25/ABRIL - 26/ABRIL",
                 operacao: "PANDORA IV",
                 local: "AMPARO SP",
                 horario: "-",
-                tipo: "OPERAÇÃO"
+                tipo: "OPERAÇÃO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "10/MAIO",
                 operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "24/MAIO",
                 operacao: "ELITE TIM",
                 local: "CT SÃO PEDRO",
                 horario: "08:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "31/MAIO",
                 operacao: "TATICAL OPS",
                 local: "RESENDE RJ",
                 horario: "-",
-                tipo: "CURSO"
+                tipo: "CURSO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "13/JUN - 14/JUN",
                 operacao: "MIDAS KIEV",
                 local: "PINDA SP",
                 horario: "-",
-                tipo: "OPERAÇÃO"
+                tipo: "OPERAÇÃO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "28/JUN",
                 operacao: "PREPARAÇÃO FRONTEIRA V",
                 local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "04/JUL - 05/JUL",
                 operacao: "FRONTEIRA VI",
                 local: "TAUBATE SP",
                 horario: "19:00 - 12:00",
-                tipo: "OPERAÇÃO"
+                tipo: "OPERAÇÃO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "12/JUL",
                 operacao: "URBAN OPS",
                 local: "RESENDE RJ",
                 horario: "-",
-                tipo: "CURSO"
+                tipo: "CURSO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "08/AGO",
                 operacao: "PREPARAÇÃO COMBATE ZONE V",
                 local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "15/AGO",
                 operacao: "COMBATE ZONE V",
                 local: "ITAJUBA SP",
                 horario: "19:00 - 12:00",
-                tipo: "OPERAÇÃO"
+                tipo: "OPERAÇÃO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "29/AGO",
                 operacao: "JOGO/TREINO NOTURNO GOST ",
                 local: "CT ALPHA GOST",
                 horario: "20:00 - 00:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "13/SET",
                 operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "19/SET",
                 operacao: "TREINAMENTO - ELITE TIM",
                 local: "CT SÃO PEDRO",
                 horario: "19:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "11/OUT",
                 operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "24/OUT - 25/OUT",
                 operacao: "OPERACIONAL TATICO AIRSOFT ",
                 local: "CT SÃO PEDRO",
                 horario: "14:00",
-                tipo: "CURSO"
+                tipo: "CURSO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "08/NOV",
                 operacao: "TATICO MILSIM - ELITE TIM",
                 local: "CT SÃO PEDRO",
                 horario: "08:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "22/NOV",
                 operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "06/DEZ",
                 operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
             {
                 data: "20/DEZ",
                 operacao: "JOGO/TREINO GOST",
                 local: "CT ALPHA GOST",
                 horario: "07:30 - 11:00",
-                tipo: "TREINAMENTO"
+                tipo: "TREINAMENTO",
+                status: "",
+                observacoes: ""
             },
         ];
 
@@ -481,10 +588,11 @@
 
             eventos.forEach((evento, index) => {
                 const eventoPassou = dataJaPassou(evento.data);
-                const rowBg = eventoPassou ? 'bg-green-50' : (index % 2 === 0 ? 'bg-white' : 'bg-gray-100');
+                const eventoCancelado = evento.status && evento.status.toUpperCase().includes('CANCELADO');
+                const rowBg = eventoCancelado ? 'bg-red-50' : (eventoPassou ? 'bg-green-50' : (index % 2 === 0 ? 'bg-white' : 'bg-gray-100'));
                 const tr = document.createElement('tr');
                 tr.className = `table-row border-2 border-black ${rowBg}`;
-                const checkIcon = eventoPassou ? '<span class="check-verde">✓</span>' : '';
+                const checkIcon = (eventoPassou && !eventoCancelado) ? '<span class="check-verde">✓</span>' : '';
 
                 // Adiciona link do Maps se o local for CT ALPHA GOST
                 const ctAlpha = evento.local.toUpperCase() === 'CT ALPHA GOST'
@@ -518,8 +626,18 @@
                 tr.innerHTML = `
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 font-bold text-xs sm:text-sm md:text-base whitespace-nowrap">${evento.data}</td>
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 text-xs sm:text-sm md:text-base break-words align-top">
-                        <div class="operacao-tipo">${evento.tipo || ''}</div>
-                        <div class="uppercase">${checkIcon}${evento.operacao}</div>
+                        <div class="descricao-cell">
+                            <div class="descricao-esquerda">
+                                <div class="operacao-tipo">${evento.tipo || ''}</div>
+                                <div class="uppercase">${checkIcon}${evento.operacao}</div>
+                            </div>
+                            ${(evento.status || evento.observacoes) ? `
+                            <div class="descricao-direita">
+                                ${evento.status ? `<div class="evento-status">${evento.status}</div>` : ''}
+                                ${evento.observacoes ? `<div class="evento-observacoes">${evento.observacoes}</div>` : ''}
+                            </div>
+                            ` : ''}
+                        </div>
                     </td>
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 uppercase text-xs sm:text-sm md:text-base break-words">${evento.local}${ctAlpha}${ctSaoPedro}${localDistrict4}${localFronteira6}${localLaboratorioSarPA}${localCombateZoneV}${localMegawatts3}</td>
                     <td class="border-2 border-black px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 font-semibold text-xs sm:text-sm md:text-base text-center whitespace-nowrap">${evento.horario}</td>
@@ -536,8 +654,9 @@
 
             eventos.forEach((evento, index) => {
                 const eventoPassou = dataJaPassou(evento.data);
-                const checkIcon = eventoPassou ? '<span class="check-verde">✓</span>' : '';
-                const cardBg = eventoPassou ? 'passou' : (index % 2 === 0 ? '' : 'cinza');
+                const eventoCancelado = evento.status && evento.status.toUpperCase().includes('CANCELADO');
+                const checkIcon = (eventoPassou && !eventoCancelado) ? '<span class="check-verde">✓</span>' : '';
+                const cardBg = eventoCancelado ? 'cancelado' : (eventoPassou ? 'passou' : (index % 2 === 0 ? '' : 'cinza'));
 
                 // Adiciona link do Maps se o local for CT ALPHA GOST
                 const ctAlpha = evento.local.toUpperCase() === 'CT ALPHA GOST'
@@ -577,8 +696,18 @@
                         <div class="card-horario">${evento.horario}</div>
                     </div>
                     <div class="card-operacao">
-                        <div class="operacao-tipo">${evento.tipo || ''}</div>
-                        <div>${checkIcon}${evento.operacao}</div>
+                        <div class="card-descricao-cell">
+                            <div class="card-descricao-esquerda">
+                                <div class="operacao-tipo">${evento.tipo || ''}</div>
+                                <div>${checkIcon}${evento.operacao}</div>
+                            </div>
+                            ${(evento.status || evento.observacoes) ? `
+                            <div class="card-descricao-direita">
+                                ${evento.status ? `<div class="evento-status">${evento.status}</div>` : ''}
+                                ${evento.observacoes ? `<div class="evento-observacoes">${evento.observacoes}</div>` : ''}
+                            </div>
+                            ` : ''}
+                        </div>
                     </div>
                     <div class="card-footer">
                         <div class="card-local-container">
