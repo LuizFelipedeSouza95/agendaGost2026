@@ -13,26 +13,36 @@
             font-family: 'Roboto', sans-serif;
         }
 
+        /* Camada acima do conteúdo: a tabela/cards são opacos e cobriam o fundo centrado */
         .watermark {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.08;
-            z-index: 0;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             pointer-events: none;
-            width: 400px;
-            height: 400px;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNIDEwMCAxMCBMIDkwIDQwIEwgNzAgMzAgTCA1MCA1MCBMIDMwIDQwIEwgMTAgNjAgTCAyMCA4MCBMIDQwIDcwIEwgNjAgOTAgTCA4MCA4MCBMIDkwIDEwMCBMIDEwMCA5MCBMIDExMCAxMDAgTCAxMzAgODAgTCAxNTAgOTAgTCAxNzAgNzAgTCAxOTAgODAgTCAxODAgNjAgTCAxNzAgNDAgTCAxNTAgNTAgTCAxMzAgMzAgTCAxMTAgNDAgWiIgZmlsbD0iIzAwMCIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjUwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjMiLz48L3N2Zz4=');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
+            opacity: 0.13;
+        }
+
+        .watermark-img {
+            width: min(120vmin, 1980px);
+            height: min(120vmin, 1980px);
+            max-width: 100vw;
+            max-height: 100vh;
+            object-fit: contain;
+            user-select: none;
+            -webkit-user-drag: none;
         }
 
         @media (max-width: 640px) {
             .watermark {
-                width: 200px;
-                height: 200px;
+                opacity: 0.11;
+            }
+
+            .watermark-img {
+                width: min(115vmin, 980px);
+                height: min(115vmin, 980px);
             }
         }
 
@@ -227,8 +237,6 @@
 </head>
 
 <body class="bg-white min-h-screen py-4 px-2 sm:py-8 sm:px-4">
-    <div class="watermark"></div>
-
     <div class="table-container max-w-6xl mx-auto">
         <h1
             class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-center mb-4 sm:mb-6 md:mb-8 tracking-wider text-black uppercase px-2">
@@ -740,6 +748,9 @@
             renderizarCards();
         });
     </script>
+    <div class="watermark" aria-hidden="true">
+        <img class="watermark-img" src="./gost_sem_fundo.svg" alt="" width="1980" height="1980" decoding="async">
+    </div>
 </body>
 
 </html>
