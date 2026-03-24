@@ -11,27 +11,42 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
 
-        body {
-            font-family: 'Roboto', sans-serif;
+        html {
+            overflow-x: hidden;
+            overscroll-behavior-y: none;
         }
 
-        /* Camada acima do conteúdo: a tabela/cards são opacos e cobriam o fundo centrado */
+        body {
+            font-family: 'Roboto', sans-serif;
+            overscroll-behavior-y: none;
+        }
+
+        /* Fixo ao viewport (inset 0, sem vh): evita “pulo” com barra do navegador no mobile */
         .watermark {
             position: fixed;
-            inset: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
             z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             pointer-events: none;
             opacity: 0.13;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
         .watermark-img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) translateZ(0);
+            -webkit-transform: translate(-50%, -50%) translateZ(0);
             width: min(120vmin, 1980px);
             height: min(120vmin, 1980px);
-            max-width: 100vw;
-            max-height: 100vh;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
             user-select: none;
             -webkit-user-drag: none;
